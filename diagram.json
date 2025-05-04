@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "author": "Emmanuella Lodonu",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 211.8, "left": -749.4, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -25.37, "left": -771.2, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 37.1, "left": -873.8, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 147.95,
+      "left": -480,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": 1.5, "left": -407.3, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 275,
+      "left": -432,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 273.2, "left": -265.7, "attrs": {} },
+    { "type": "wokwi-ks2e-m-dc5", "id": "relay1", "top": 186.9, "left": -245.5, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 44.4,
+      "left": -207.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": -182.4,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:VSS", "uno:GND.1", "black", [ "v38.4", "h76.8" ] ],
+    [ "uno:5V", "lcd1:VDD", "red", [ "v19.1", "h-169", "v-259.2", "h28.8", "v-9.6" ] ],
+    [ "pot1:GND", "lcd1:VSS", "black", [ "v38.4", "h96" ] ],
+    [ "pot1:SIG", "lcd1:V0", "green", [ "v48", "h124.4" ] ],
+    [ "pot1:VCC", "lcd1:VDD", "red", [ "v38.4", "h95.2" ] ],
+    [ "lcd1:RS", "uno:2", "green", [ "v57.6", "h182.7" ] ],
+    [ "lcd1:RW", "lcd1:VSS", "black", [ "v19.2", "h-28.9" ] ],
+    [ "lcd1:E", "uno:3", "orange", [ "v57.6", "h163.2" ] ],
+    [ "lcd1:D4", "uno:4", "gold", [ "v28.8", "h96" ] ],
+    [ "lcd1:D5", "uno:5", "gold", [ "v38.4", "h86.5" ] ],
+    [ "lcd1:D6", "uno:6", "green", [ "v48", "h57.8" ] ],
+    [ "lcd1:D7", "uno:7", "green", [ "v67.2", "h38.7" ] ],
+    [ "lcd1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "lcd1:VDD", "red", [ "v-19.2", "h-250.8" ] ],
+    [ "lcd1:K", "lcd1:VSS", "black", [ "v19.2", "h-86.4" ] ],
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "v326.4", "h-230.4" ] ],
+    [ "ultrasonic1:TRIG", "uno:8", "purple", [ "v105.6", "h-250", "v19.2" ] ],
+    [ "ultrasonic1:ECHO", "uno:9", "green", [ "v86.4", "h8.8" ] ],
+    [ "ultrasonic1:GND", "uno:GND.3", "black", [ "v355.2", "h-250.8" ] ],
+    [ "btn1:2.l", "uno:GND.3", "green", [ "h-9.6", "v125", "h-134.4", "v-38.4" ] ],
+    [ "btn1:1.r", "uno:10", "white", [ "v-38.4", "h-230.2" ] ],
+    [ "sw1:1", "uno:11", "gold", [ "v28.8", "h-336" ] ],
+    [ "sw1:2", "uno:GND.3", "black", [ "v134.4", "h-307.1" ] ],
+    [ "relay1:COIL1", "uno:GND.3", "black", [ "v241.2", "h-327.7" ] ],
+    [ "relay1:COIL2", "uno:12", "orange", [ "v9.6", "h-442.9" ] ],
+    [ "uno:5V", "relay1:P1", "red", [ "v38.3", "h387.8" ] ],
+    [ "led1:A", "r2:1", "red", [ "v0" ] ],
+    [ "led1:C", "relay1:COIL1", "green", [ "v76.8", "h48.4", "v48" ] ],
+    [ "r2:2", "relay1:NC1", "green", [ "v105.6", "h-97.2" ] ]
+  ],
+  "dependencies": {}
+}
